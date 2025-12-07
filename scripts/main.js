@@ -5,7 +5,7 @@
 // API Key Placeholders - TO BE REPLACED BY USER
 const CONFIG = {
     OPENWEATHER_API_KEY: '16066efccc11e735bac3108ac819d5cb',
-    GEMINI_API_KEY: 'AIzaSyCkwJCp4RmpoLvhRFtjPvBPjxES8KExQ6o',
+    GEMINI_API_KEY: 'AIzaSyDPQr7FGDjQFlARWGd2Pwizi4VOcHZsCyg',
     EMAILJS_SERVICE_ID: 'service_tv83den',
     EMAILJS_TEMPLATE_TEAM_ID: 'template_z06gege',
     EMAILJS_TEMPLATE_CLIENT_ID: 'template_gkycv5v',

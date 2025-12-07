@@ -22,7 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(err => {
                 // Show the actual error message for debugging
-                const errorMessage = `Error: ${err.message || 'Unknown error occurred'}`;
+                let errorMessage = `Error: ${err.message || 'Unknown error occurred'}`;
+
+                // If it's a 404 model not found error, provide helpful guidance
+                if (err.message && err.message.includes('404')) {
+                    errorMessage += '\n\nYour API key may not have access to Gemini models. Please:\n1. Go to https://aistudio.google.com/app/apikey\n2. Delete your current key\n3. Create a new API key\n4. Update the key in scripts/main.js';
+                }
+
                 appendMessage('ai', errorMessage);
                 console.error(err);
             });
@@ -38,8 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function getGeminiSuggestion(userMessage) {
-        // Use Gemini 1.5 Flash on v1 (Stable)
-        const url = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${CONFIG.GEMINI_API_KEY}`;
+        // Use Gemini 2.5 Flash (confirmed available)
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${CONFIG.GEMINI_API_KEY}`;
 
         return fetch(url, {
             method: 'POST',
