@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TripPlanner+ - My Trips</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">TripPlanner+</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="trips.html">Trips</a></li>
+                <li><a href="weather.html">Weather</a></li>
+                <li><a href="ai-suggestions.html">AI Suggestions</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Trip Creation Form -->
+        <section class="card">
+            <h2>Add New Trip</h2>
+            <form id="trip-form">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <div class="form-group">
+                        <label for="trip-name">Trip Name</label>
+                        <input type="text" id="trip-name" required placeholder="e.g. Summer Vacation">
+                    </div>
+                    <div class="form-group">
+                        <label for="trip-origin">Origin</label>
+                        <input type="text" id="trip-origin" required placeholder="e.g. New York">
+                    </div>
+                    <div class="form-group">
+                        <label for="trip-destination">Destination</label>
+                        <input type="text" id="trip-destination" required placeholder="e.g. Paris">
+                    </div>
+                    <div class="form-group">
+                        <label for="trip-start">Start Date</label>
+                        <input type="date" id="trip-start" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="trip-end">End Date</label>
+                        <input type="date" id="trip-end" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn">Create Trip</button>
+            </form>
+        </section>
+
+        <!-- Trip List -->
+        <section>
+            <h2>My Trips</h2>
+            <div id="trips-list" class="card-grid">
+                <!-- Trips will be rendered here by JS -->
+                <p>No trips yet. Create one above!</p>
+            </div>
+        </section>
+
+        <!-- Selected Trip Details & Activities (Hidden by default) -->
+        <section id="trip-details-section" class="card" style="display: none;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem;">
+                <div>
+                    <h2 id="detail-name">Trip Details</h2>
+                    <p id="detail-route" style="color: #6b7280; font-size: 1.1rem;"></p>
+                    <p id="detail-dates" style="color: #6b7280;"></p>
+                </div>
+                <button id="close-details" class="btn btn-secondary">Close Details</button>
+            </div>
+
+            <h3>Activities</h3>
+
+            <!-- Activity Form -->
+            <form id="activity-form"
+                style="background-color: var(--bg-color); padding: 1rem; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+                <h4 style="margin-bottom: 1rem;">Add Activity</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+                    <div class="form-group">
+                        <label for="act-day">Day / Date</label>
+                        <input type="text" id="act-day" required placeholder="e.g. Day 1 (Jun 1)">
+                    </div>
+                    <div class="form-group">
+                        <label for="act-time">Time</label>
+                        <input type="time" id="act-time">
+                    </div>
+                    <div class="form-group">
+                        <label for="act-title">Activity Title</label>
+                        <input type="text" id="act-title" required placeholder="e.g. Visit Museum">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="act-desc">Description</label>
+                    <input type="text" id="act-desc" placeholder="Details...">
+                </div>
+                <button type="submit" class="btn">Add Activity</button>
+            </form>
+
+            <!-- Activities List -->
+            <div id="activities-list">
+                <!-- Activities will be rendered here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 TripPlanner+. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/trips.js"></script>
+</body>
+
+</html>

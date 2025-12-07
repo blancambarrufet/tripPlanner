@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TripPlanner+ - AI Suggestions</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">TripPlanner+</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="trips.html">Trips</a></li>
+                <li><a href="weather.html">Weather</a></li>
+                <li><a href="ai-suggestions.html">AI Suggestions</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="card"
+            style="max-width: 800px; margin: 0 auto; height: 80vh; display: flex; flex-direction: column;">
+            <div style="margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+                <h2>AI Trip Assistant</h2>
+                <p style="color: #6b7280; font-size: 0.9rem;">Ask for itinerary ideas, local food recommendations, or
+                    packing tips.</p>
+            </div>
+
+            <div id="chat-window" aria-live="polite" style="flex: 1; overflow-y: auto;">
+                <div class="message ai">
+                    Hello! I'm your TripPlanner+ assistant. Where are you planning to go next?
+                </div>
+            </div>
+
+            <form id="chat-form" style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                <input id="chat-input" type="text" placeholder="e.g. Give me a 3-day itinerary for Rome..." required
+                    autocomplete="off">
+                <button type="submit" class="btn">Send</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/ai.js"></script>
+</body>
+
+</html>
