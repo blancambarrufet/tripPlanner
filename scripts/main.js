@@ -1,46 +1,9 @@
 /**
  * TripPlanner+ Shared Configuration & Helpers
+ * 
+ * Note: CONFIG is loaded from scripts/config.js
+ * Make sure config.js exists (copy from config.example.js and add your API keys)
  */
-
-// Configuration object - will be populated from environment variables
-const CONFIG = {
-    OPENWEATHER_API_KEY: '',
-    GEMINI_API_KEY: '',
-    EMAILJS_SERVICE_ID: '',
-    EMAILJS_TEMPLATE_TEAM_ID: '',
-    EMAILJS_TEMPLATE_CLIENT_ID: '',
-    EMAILJS_PUBLIC_KEY: '',
-    EMAILJS_API_URL: 'https://api.emailjs.com/api/v1.0/email/send'
-};
-
-// Load environment variables
-async function initializeConfig() {
-    if (typeof loadEnv === 'function') {
-        const env = await loadEnv();
-
-        // Populate CONFIG from environment variables
-        CONFIG.OPENWEATHER_API_KEY = env.OPENWEATHER_API_KEY || '';
-        CONFIG.GEMINI_API_KEY = env.GEMINI_API_KEY || '';
-        CONFIG.EMAILJS_SERVICE_ID = env.EMAILJS_SERVICE_ID || '';
-        CONFIG.EMAILJS_TEMPLATE_TEAM_ID = env.EMAILJS_TEMPLATE_TEAM_ID || '';
-        CONFIG.EMAILJS_TEMPLATE_CLIENT_ID = env.EMAILJS_TEMPLATE_CLIENT_ID || '';
-        CONFIG.EMAILJS_PUBLIC_KEY = env.EMAILJS_PUBLIC_KEY || '';
-        CONFIG.EMAILJS_API_URL = env.EMAILJS_API_URL || 'https://api.emailjs.com/api/v1.0/email/send';
-
-        console.log('Configuration loaded from environment variables');
-    } else {
-        console.warn('env-loader.js not loaded. Make sure to include it before main.js');
-    }
-}
-
-// Initialize configuration when DOM is ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeConfig);
-} else {
-    initializeConfig();
-}
-
-
 // LocalStorage Keys
 const STORAGE_KEYS = {
     TRIPS: 'tripplanner_trips',

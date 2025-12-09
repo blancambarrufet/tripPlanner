@@ -1,6 +1,9 @@
 # Environment variables
 .env
 
+# Configuration files with API keys
+scripts/config.js
+
 # Node modules (if using npm in the future)
 node_modules/
 

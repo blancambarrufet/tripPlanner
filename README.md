@@ -28,16 +28,16 @@ git clone <repository-url>
 cd tripplanner
 ```
 
-### 2. Configure Environment Variables
+### 2. Configure API Keys
 
-The project uses environment variables to store API keys securely. Follow these steps:
+The project uses a configuration file to store API keys. Follow these steps:
 
-#### a. Create the `.env` file
+#### a. Create the `config.js` file
 
-Copy the example environment file:
+Copy the example configuration file:
 
 ```bash
-cp .env.example .env
+cp scripts/config.example.js scripts/config.js
 ```
 
 #### b. Obtain API Keys
@@ -68,18 +68,20 @@ You'll need to get API keys from the following services:
    - Template IDs (team and client)
    - Public Key (from Account settings)
 
-#### c. Update the `.env` file
+#### c. Update the `config.js` file
 
-Open the `.env` file and replace the placeholder values with your actual API keys:
+Open `scripts/config.js` and replace the placeholder values with your actual API keys:
 
-```env
-OPENWEATHER_API_KEY=your_openweather_api_key_here
-GEMINI_API_KEY=your_gemini_api_key_here
-EMAILJS_SERVICE_ID=your_emailjs_service_id_here
-EMAILJS_TEMPLATE_TEAM_ID=your_emailjs_team_template_id_here
-EMAILJS_TEMPLATE_CLIENT_ID=your_emailjs_client_template_id_here
-EMAILJS_PUBLIC_KEY=your_emailjs_public_key_here
-EMAILJS_API_URL=https://api.emailjs.com/api/v1.0/email/send
+```javascript
+const CONFIG = {
+    OPENWEATHER_API_KEY: 'your_actual_openweather_key',
+    GEMINI_API_KEY: 'your_actual_gemini_key',
+    EMAILJS_SERVICE_ID: 'your_actual_service_id',
+    EMAILJS_TEMPLATE_TEAM_ID: 'your_actual_team_template_id',
+    EMAILJS_TEMPLATE_CLIENT_ID: 'your_actual_client_template_id',
+    EMAILJS_PUBLIC_KEY: 'your_actual_public_key',
+    EMAILJS_API_URL: 'https://api.emailjs.com/api/v1.0/email/send'
+};
 ```
 
 ### 3. Run the Application
@@ -142,14 +144,14 @@ tripplanner/
 ├── ai-suggestions.html     # AI assistant page
 ├── about.html              # About us and contact page
 ├── styles.css              # Global styles
-├── .env                    # Environment variables (not committed)
-├── .env.example            # Environment variables template
+├── .env                    # Legacy environment file (optional)
+├── .env.example            # Environment variables template (legacy)
 ├── .gitignore              # Git ignore rules
 ├── README.md               # This file
-├── ENV_SETUP.md            # Detailed environment setup guide
 ├── scripts/
-│   ├── env-loader.js       # Loads environment variables
-│   ├── main.js             # Shared configuration and utilities
+│   ├── config.js           # API keys configuration (not committed)
+│   ├── config.example.js   # Configuration template
+│   ├── main.js             # Shared utilities
 │   ├── trips.js            # Trip management logic
 │   ├── weather.js          # Weather functionality
 │   ├── ai.js               # AI suggestions logic
@@ -161,7 +163,7 @@ tripplanner/
 
 ⚠️ **Important Security Notes**:
 
-1. **Never commit the `.env` file**: It's already in `.gitignore`, but make sure it stays there
+1. **Never commit the `scripts/config.js` file**: It's already in `.gitignore`, but make sure it stays there
 2. **Client-side limitations**: This is a client-side application, so API keys will be visible in the browser. For production:
    - Use a backend proxy to hide sensitive keys
    - Implement API key restrictions (domain restrictions, rate limiting)
@@ -175,11 +177,12 @@ tripplanner/
 
 ### API Keys Not Working
 
-1. Verify the `.env` file exists in the `tripplanner` directory
-2. Check that all variables are set correctly (no quotes needed)
-3. Make sure there are no extra spaces around the `=` sign
-4. Restart your web server after updating `.env`
+1. Verify the `scripts/config.js` file exists
+2. Check that all variables are set correctly in the CONFIG object
+3. Make sure the file is valid JavaScript (no syntax errors)
+4. Restart your web server after updating `config.js`
 5. Check browser console for specific error messages
+6. Ensure `config.js` is loaded before `main.js` in your HTML files
 
 ### Weather Not Loading
 
