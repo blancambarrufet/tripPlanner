@@ -24,58 +24,61 @@
     </header>
 
     <main>
-        <section class="card" style="max-width: 600px; margin: 0 auto;">
-            <h2>Check Weather</h2>
-            <form id="weather-form">
-                <div class="form-group">
-                    <label for="city-input">Search by City</label>
-                    <input type="text" id="city-input" placeholder="e.g. London, Tokyo">
-                </div>
+        <div class="container">
+            <section class="card" style="max-width: 600px; margin: 0 auto;">
+                <h2>Check Weather</h2>
+                <form id="weather-form">
+                    <div class="form-group">
+                        <label for="city-input">Search by City</label>
+                        <input type="text" id="city-input" placeholder="e.g. London, Tokyo">
+                    </div>
 
-                <div style="text-align: center; margin: 1rem 0; color: #6b7280;">- OR -</div>
+                    <div style="text-align: center; margin: 1rem 0; color: #6b7280;">- OR -</div>
 
-                <div class="form-group">
-                    <label for="trip-select">Select from My Trips</label>
-                    <select id="trip-select">
-                        <option value="">-- Choose a Trip --</option>
-                    </select>
-                </div>
+                    <div class="form-group">
+                        <label for="trip-select">Select from My Trips</label>
+                        <select id="trip-select">
+                            <option value="">-- Choose a Trip --</option>
+                        </select>
+                    </div>
 
-                <button type="submit" class="btn" style="width: 100%;">Get Weather</button>
-            </form>
-        </section>
+                    <button type="submit" class="btn" style="width: 100%;">Get Weather</button>
+                </form>
+            </section>
 
-        <!-- Weather Result -->
-        <section id="weather-result" style="max-width: 600px; margin: 2rem auto; display: none;">
-            <div class="card" style="text-align: center;">
-                <h2 id="w-city" style="margin-bottom: 0.5rem;">City Name</h2>
-                <p id="w-date" style="color: #6b7280; margin-bottom: 1.5rem;">Date</p>
+            <!-- Weather Result -->
+            <section id="weather-result" style="max-width: 600px; margin: 2rem auto; display: none;">
+                <div class="card" style="text-align: center;">
+                    <h2 id="w-city" style="margin-bottom: 0.5rem;">City Name</h2>
+                    <p id="w-date" style="color: #6b7280; margin-bottom: 1.5rem;">Date</p>
 
-                <div
-                    style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
-                    <img id="w-icon" src="" alt="Weather Icon" style="width: 100px; height: 100px;">
-                    <div style="font-size: 3rem; font-weight: 700; color: var(--primary-color);">
-                        <span id="w-temp">--</span>°C
+                    <div
+                        style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+                        <img id="w-icon" src="" alt="Weather Icon" style="width: 100px; height: 100px;">
+                        <div style="font-size: 3rem; font-weight: 700; color: var(--primary-color);">
+                            <span id="w-temp">--</span>°C
+                        </div>
+                    </div>
+
+                    <p id="w-desc" style="font-size: 1.5rem; text-transform: capitalize; margin-bottom: 1rem;">Condition
+                    </p>
+
+                    <div
+                        style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; background-color: var(--bg-body); padding: 1rem; border-radius: 0.5rem; margin-top: 1rem;">
+                        <div>
+                            <strong>Humidity</strong>
+                            <div id="w-humidity">--%</div>
+                        </div>
+                        <div>
+                            <strong>Wind</strong>
+                            <div id="w-wind">-- m/s</div>
+                        </div>
                     </div>
                 </div>
+            </section>
 
-                <p id="w-desc" style="font-size: 1.5rem; text-transform: capitalize; margin-bottom: 1rem;">Condition</p>
-
-                <div
-                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; background-color: var(--bg-color); padding: 1rem; border-radius: 0.5rem; margin-top: 1rem;">
-                    <div>
-                        <strong>Humidity</strong>
-                        <div id="w-humidity">--%</div>
-                    </div>
-                    <div>
-                        <strong>Wind</strong>
-                        <div id="w-wind">-- m/s</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div id="error-msg" style="color: #ef4444; text-align: center; display: none; margin-top: 1rem;"></div>
+            <div id="error-msg" style="color: #ef4444; text-align: center; display: none; margin-top: 1rem;"></div>
+        </div>
     </main>
 
     <footer>

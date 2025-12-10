@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TripPlanner+ - Trip Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">TripPlanner+</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="trips.html">Trips</a></li>
+                <li><a href="weather.html">Weather</a></li>
+                <li><a href="ai-suggestions.html">AI Suggestions</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Header Section of the Trip -->
+            <section class="trip-header-hero">
+                <div class="trip-header-content">
+                    <a href="trips.html" class="back-link">← Back to Trips</a>
+                    <h1 id="detail-name">Trip Name</h1>
+                    <div class="trip-meta-badges">
+                        <span id="detail-dates" class="badge">Dates</span>
+                        <span id="detail-route" class="badge badge-outline">Route</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Content Grid -->
+            <div class="trip-detail-grid">
+                <!-- Left: Activities List -->
+                <div class="activities-section">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                        <h2>Itinerary</h2>
+                        <!-- Optional: Sort or Filter controls could go here -->
+                    </div>
+                    <div id="activities-list">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+
+                <!-- Right: Add Activity Form (Sidebar) -->
+                <div class="sidebar-section">
+                    <div class="card sticky-card">
+                        <h3>Add New Activity</h3>
+                        <form id="activity-form">
+                            <div class="form-group">
+                                <label for="act-day">Day / Date</label>
+                                <input type="text" id="act-day" required placeholder="e.g. Day 1 (Jun 1)">
+                            </div>
+                            <div class="form-group">
+                                <label for="act-time">Time</label>
+                                <input type="time" id="act-time">
+                            </div>
+                            <div class="form-group">
+                                <label for="act-title">Activity</label>
+                                <input type="text" id="act-title" required placeholder="What are you doing?">
+                            </div>
+                            <div class="form-group">
+                                <label for="act-desc">Description</label>
+                                <textarea id="act-desc" rows="3" placeholder="Notes, addresses, etc..."></textarea>
+                            </div>
+                            <button type="submit" class="btn" style="width: 100%;">Add to Itinerary</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 TripPlanner+. All rights reserved.</p>
+    </footer>
+
+    <script src="scripts/config.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/trip-detail.js"></script>
+</body>
+
+</html>
