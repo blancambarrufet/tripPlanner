@@ -44,8 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
         errorMsg.style.display = 'none';
         resultSection.style.display = 'none';
 
-        // NOTE: In a real app, API_KEY should not be CLIENT-SIDE.
-        // But for this project constraint, it is allowed/required.
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&units=metric&appid=${CONFIG.OPENWEATHER_API_KEY}`;
 
         fetch(url)
