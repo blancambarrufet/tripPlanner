@@ -344,7 +344,7 @@ textarea:focus {
     box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
 }
 
-/* --- Trip UI Details --- */
+/* --- Trip UI Details --- */xº
 .trip-card {
     position: relative;
     border: 1px solid var(--border-color);
@@ -414,18 +414,6 @@ footer p {
     color: var(--text-muted);
 }
 
-/* --- Animation --- */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 /* Responsive */
 @media (max-width: 768px) {
