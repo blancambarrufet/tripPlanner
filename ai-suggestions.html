@@ -23,10 +23,10 @@
     </header>
 
     <main>
-        <div class="container">
+        <div class="container" style="margin-top: 2rem;">
             <section class="card"
-                style="max-width: 800px; margin: 0 auto; height: 80vh; display: flex; flex-direction: column;">
-                <div style="margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+                style="max-width: 800px; margin: 0 auto; height: 80vh; padding: 2rem; display: flex; flex-direction: column;">
+                <div style=" margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
                     <h2>AI Trip Assistant</h2>
                     <p style="color: #6b7280; font-size: 0.9rem;">Ask for itinerary ideas, local food recommendations,
                         or
@@ -34,8 +34,15 @@
                 </div>
 
                 <div id="chat-window" aria-live="polite" style="flex: 1; overflow-y: auto;">
-                    <div class="message ai">
-                        Hello! I'm your TripPlanner+ assistant. Where are you planning to go next?
+                    <div class="message ai">    
+                        <p><strong>Hello!</strong> I'm your TripPlanner+ assistant. Where are you planning to go next?</p>
+                        <p>I can help you with:</p>
+                        <ul>
+                            <li>Itinerary planning</li>
+                            <li>Local food recommendations</li>
+                            <li>Packing tips</li>
+                            <li>Must-see attractions</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -48,6 +55,7 @@
         </div>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="scripts/config.js"></script>
     <script src="scripts/main.js"></script>
     <script src="scripts/ai.js"></script>

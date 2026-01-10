@@ -24,37 +24,73 @@
 
     <main>
         <div class="container">
-            <!-- Header Section of the Trip -->
             <section class="trip-header-hero">
                 <div class="trip-header-content">
                     <a href="trips.html" class="back-link">← Back to Trips</a>
-                    <h1 id="detail-name">Trip Name</h1>
-                    <div class="trip-meta-badges">
-                        <span id="detail-dates" class="badge">Dates</span>
-                        <span id="detail-route" class="badge badge-outline">Route</span>
+                    <div class="trip-header-buttons-wrapper" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 200px;">
+                            <h1 id="detail-name">Trip Name</h1>
+                            <div class="trip-meta-badges">
+                                <span id="detail-dates" class="badge">Dates</span>
+                                <span id="detail-route" class="badge badge-outline">Route</span>
+                            </div>
+                        </div>
+                        <div class="trip-action-buttons" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <button type="button" id="edit-trip-btn" class="btn btn-secondary" style="margin-top: 0.5rem;">Edit Trip</button>
+                            <button type="button" id="delete-trip-btn" class="btn btn-delete" style="margin-top: 0.5rem;">Delete Trip</button>
+                        </div>
+                    </div>
+                    <div id="edit-trip-form" style="display: none; margin-top: 2rem; padding: 1.5rem; background: white; border-radius: 1rem; box-shadow: 0 1px 3px 0 #0000001a;">
+                        <h3 style="margin-bottom: 1rem;">Edit Trip Details</h3>
+                        <form id="trip-edit-form">
+                            <div class="form-group">
+                                <label for="edit-name">Trip Name</label>
+                                <input type="text" id="edit-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-origin">Origin</label>
+                                <input type="text" id="edit-origin" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-destination">Destination</label>
+                                <input type="text" id="edit-destination" required>
+                            </div>
+                            <div class="edit-dates-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                <div class="form-group">
+                                    <label for="edit-start">Start Date</label>
+                                    <input type="date" id="edit-start" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-end">End Date</label>
+                                    <input type="date" id="edit-end" required>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 1rem;">
+                                <button type="submit" class="btn" style="flex: 1;">Save Changes</button>
+                                <button type="button" id="cancel-edit-btn" class="btn btn-secondary" style="flex: 1;">Cancel</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </section>
 
-            <!-- Content Grid -->
             <div class="trip-detail-grid">
-                <!-- Left: Activities List -->
                 <div class="activities-section">
-                    <div
-                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <div class="itinerary-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
                         <h2>Itinerary</h2>
-                        <!-- Optional: Sort or Filter controls could go here -->
                     </div>
                     <div id="activities-list">
-                        <!-- Rendered by JS -->
                     </div>
                 </div>
 
-                <!-- Right: Add Activity Form (Sidebar) -->
                 <div class="sidebar-section">
                     <div class="card sticky-card">
-                        <h3>Add New Activity</h3>
+                        <h3 id="activity-form-title">Add New Activity</h3>
+                        <div id="activity-success" style="display: none; padding: 0.75rem; margin-bottom: 1rem; background: #10b981; color: white; border-radius: 0.5rem; text-align: center; font-weight: 600;">
+                            Activity saved successfully!
+                        </div>
                         <form id="activity-form">
+                            <input type="hidden" id="act-id" value="">
                             <div class="form-group">
                                 <label for="act-day">Day / Date</label>
                                 <input type="text" id="act-day" required placeholder="e.g. Day 1 (Jun 1)">
@@ -71,7 +107,10 @@
                                 <label for="act-desc">Description</label>
                                 <textarea id="act-desc" rows="3" placeholder="Notes, addresses, etc..."></textarea>
                             </div>
-                            <button type="submit" class="btn" style="width: 100%;">Add to Itinerary</button>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <button type="submit" class="btn" style="flex: 1;">Save Activity</button>
+                                <button type="button" id="cancel-activity-edit-btn" class="btn btn-secondary" style="display: none; flex: 1;">Cancel</button>
+                            </div>
                         </form>
                     </div>
                 </div>

@@ -5,25 +5,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultSection = document.getElementById('weather-result');
     const errorMsg = document.getElementById('error-msg');
 
-    // Load trips into dropdown
     const trips = loadTrips();
     trips.forEach(trip => {
         const option = document.createElement('option');
-        option.value = trip.destination; // Use destination as value for simplicity
+        option.value = trip.destination; 
         option.textContent = `${trip.name} (${trip.destination})`;
         tripSelect.appendChild(option);
     });
 
-    // Check for pre-selected trip from other pages
     const selectedTripId = localStorage.getItem(STORAGE_KEYS.SELECTED_TRIP);
     if (selectedTripId) {
         const preSelectedTrip = trips.find(t => t.id === selectedTripId);
         if (preSelectedTrip) {
             tripSelect.value = preSelectedTrip.destination;
-            // Optionally auto-submit or just let user click
             fetchWeather(preSelectedTrip.destination);
         }
-        // Clear it so it doesn't stick forever
         localStorage.removeItem(STORAGE_KEYS.SELECTED_TRIP);
     }
 
@@ -40,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function fetchWeather(city) {
-        // Reset UI
         errorMsg.style.display = 'none';
         resultSection.style.display = 'none';
 

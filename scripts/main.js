@@ -1,9 +1,7 @@
 /**
  * TripPlanner+ Shared Configuration & Helpers
- * 
- * Note: CONFIG is loaded from scripts/config.js
- * Make sure config.js exists (copy from config.example.js and add your API keys)
  */
+
 // LocalStorage Keys
 const STORAGE_KEYS = {
     TRIPS: 'tripplanner_trips',

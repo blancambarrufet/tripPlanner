@@ -24,13 +24,17 @@
 
     <main>
         <div class="container">
-            <!-- New: "Booking Widget" Style Form -->
             <section class="booking-widget-section">
                 <h2>Where to next?</h2>
 
                 <div class="booking-form-container">
                     <form id="trip-form">
                         <div class="booking-form-row">
+                            <div class="booking-field">
+                                <label for="trip-origin">Origin</label>
+                                <input type="text" id="trip-origin" required placeholder="From?">
+                            </div>
+
                             <div class="booking-field">
                                 <label for="trip-destination">Destination</label>
                                 <input type="text" id="trip-destination" required placeholder="Where are you going?">
@@ -45,24 +49,27 @@
                                 <label for="trip-end">Check-out</label>
                                 <input type="date" id="trip-end" required>
                             </div>
+                        </div>
+                        <div class="booking-form-row" style="margin-top: 1rem;">
+                            <div class="booking-field">
+                                <label for="trip-name">Trip Name</label>
+                                <input type="text" id="trip-name" required placeholder="e.g. Summer Vacation">
+                            </div>
 
-                            <button type="submit" class="btn" style="min-width: 150px; height: 46px;">
-                                <span style="margin-right:0.5rem">🔍</span> Search
+                            <button type="submit" class="btn" style="min-width: 150px; height: 46px; align-self: flex-end;">
+                                Add Trip
                             </button>
                         </div>
                     </form>
                 </div>
             </section>
 
-            <!-- Trip List -->
             <section>
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
                     <h2>Your Trips</h2>
-                    <!-- Optional filter or view toggles could go here -->
                 </div>
 
                 <div id="trips-list" class="simple-trip-grid">
-                    <!-- Trips will be rendered here by JS -->
                     <p>No trips yet. Plan your first adventure above!</p>
                 </div>
             </section>

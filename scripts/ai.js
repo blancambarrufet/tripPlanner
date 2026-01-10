@@ -3,9 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatForm = document.getElementById('chat-form');
     const chatInput = document.getElementById('chat-input');
 
-    // Optional: Load chat history
-    // For simplicity, we restart chat on reload, or you could implement loading 'tripplanner_ai_chat' here.
-
     chatForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const userText = chatInput.value.trim();
@@ -15,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         appendMessage('user', userText);
         chatInput.value = '';
 
-        // Call Gemini
+        // Call API Gemini
         getGeminiSuggestion(userText)
             .then(aiText => {
                 appendMessage('ai', aiText);
@@ -37,14 +34,30 @@ document.addEventListener('DOMContentLoaded', () => {
     function appendMessage(sender, text) {
         const msgDiv = document.createElement('div');
         msgDiv.className = `message ${sender}`;
-        // Basic Markdown-ish rendering: replace newlines with <br>
-        msgDiv.innerHTML = text.replace(/\n/g, '<br>');
+        
+        if (sender === 'ai') {
+            if (typeof marked !== 'undefined') {
+                // Configure marked better outuput display
+                marked.setOptions({
+                    breaks: true,
+                    gfm: true,   
+                    sanitize: false 
+                });
+                msgDiv.innerHTML = marked.parse(text);
+            } else {
+
+                msgDiv.innerHTML = text.replace(/\n/g, '<br>');
+            }
+        } else {
+            const textNode = document.createTextNode(text);
+            msgDiv.appendChild(textNode);
+        }
+        
         chatWindow.appendChild(msgDiv);
         chatWindow.scrollTop = chatWindow.scrollHeight;
     }
 
     function getGeminiSuggestion(userMessage) {
-        // Use Gemini 2.5 Flash (confirmed available)
         const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${CONFIG.GEMINI_API_KEY}`;
 
         return fetch(url, {

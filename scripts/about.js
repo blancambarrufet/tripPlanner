@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Reset status
         statusMsg.textContent = 'Sending...';
-        statusMsg.style.color = 'var(--text-color)';
+        statusMsg.style.color = '#111827';
 
         const name = document.getElementById('contact-name').value.trim();
         const surname = document.getElementById('contact-surname').value.trim();
@@ -40,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         // 2. Payload for the Client (Auto-reply)
-        // Note: Variable names must match EmailJS template placeholders
         const clientPayload = {
             service_id: CONFIG.EMAILJS_SERVICE_ID,
             template_id: CONFIG.EMAILJS_TEMPLATE_CLIENT_ID,
@@ -70,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Check if both succeeded
                 if (teamRes.ok && clientRes.ok) {
                     statusMsg.textContent = 'We have received your concerns. A confirmation email has been sent to you.';
-                    statusMsg.style.color = 'var(--secondary-color)';
+                    statusMsg.style.color = '#ec4899';
                     contactForm.reset();
                 } else {
                     // Try to extract error text from whichever failed
